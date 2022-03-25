@@ -3,15 +3,33 @@ window.onload = function() {
 
 		const date = new Date();
 
-		const hours = date.getHours();
-		const minutes = date.getMinutes();
-		const seconds = date.getSeconds();
-		const milliseconds = date.getMilliseconds();
+		let hours = date.getHours();
+		let minutes = date.getMinutes();
+		let seconds = date.getSeconds();
+		let milliseconds = date.getMilliseconds();
+
+		if (hours < 10){
+			hours = "0" + hours;	
+		} 
+		if (minutes < 10){
+			minutes = "0" + minutes;	
+		} 
+		if (seconds < 10) {
+			seconds = "0" + seconds;
+		}
+
+		if (milliseconds < 100) {
+			milliseconds = "0" + milliseconds;
+		}
+
+		if (milliseconds < 10) {
+			milliseconds = "00" + milliseconds;
+		}
 
 		const time = hours + ":" + minutes + ":" + seconds + ":" + milliseconds;
 
 		document.getElementById("time").innerHTML = time;
-	});
+	},100);
 }
 
 const win = document.getElementById("win-spot");
